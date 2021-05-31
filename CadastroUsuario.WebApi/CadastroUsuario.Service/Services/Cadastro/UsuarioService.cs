@@ -29,6 +29,8 @@ namespace CadastroUsuario.Service.Cadastro
         /// <returns></returns>
         public UsuarioVo Post(UsuarioVo usuarioVo)
         {
+            // O correto seria criptografar a senha em MD5 e salvar o hash no banco
+            // porem foi pedido o campo senha na edição do usuario
             usuarioVo.Ativo = true;
             var response = _usuarioRepository.Add(_usuarioConverter.Parse(usuarioVo));
 
@@ -42,6 +44,7 @@ namespace CadastroUsuario.Service.Cadastro
         /// <returns></returns>
         public UsuarioVo Put(UsuarioVo usuarioVo)
         {
+            
             var usuarioEntity = _usuarioConverter.Parse(usuarioVo);
 
             if (usuarioVo != null)
