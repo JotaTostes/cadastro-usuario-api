@@ -12,6 +12,7 @@ namespace CadastroUsuario.Repository.Context
     public class CadastroUsuarioContext : DbContext
     {
         public DbSet<Usuario> Usuario { get; set; }
+        public DbSet<Sexo> Sexo { get; set; }
         public CadastroUsuarioContext()
         {}
 

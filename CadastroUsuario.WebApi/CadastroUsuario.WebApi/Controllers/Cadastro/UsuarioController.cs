@@ -44,9 +44,9 @@ namespace CadastroUsuario.WebApi.Controllers.Cadastro
         /// </summary>
         /// <param name="guidUsuario"></param>
         /// <returns></returns>
-        [HttpDelete("Guid/{guidUsuario}")]
-        public ActionResult Remove(Guid? guidUsuario) =>
-            Ok(_usuarioService.Remove(guidUsuario));
+        [HttpDelete("id/{id}")]
+        public ActionResult Remove(int id) =>
+            Ok(_usuarioService.Remove(id));
 
         /// <summary>
         /// Lista todos usuarios ativos cadastrados
@@ -55,5 +55,9 @@ namespace CadastroUsuario.WebApi.Controllers.Cadastro
         [HttpGet]
         public ActionResult GetUsuariosAtivos() =>
             Ok(_usuarioService.GetUsuariosAtivos());
+
+        [HttpGet("id/{id}")]
+        public ActionResult GetById(int id) =>
+            Ok(_usuarioService.GetById(id));
     }
 }

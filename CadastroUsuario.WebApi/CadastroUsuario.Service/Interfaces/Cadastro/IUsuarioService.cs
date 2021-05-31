@@ -1,11 +1,12 @@
 ﻿using CadastroUsuario.DataVo.ValueObjects.Cadastro;
+using CadastroUsuario.Domain.Entities.Cadastro;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace CadastroUsuario.Service.Interfaces.Cadastro
 {
-    public interface IUsuarioService
+    public interface IUsuarioService : IServiceBase<Usuario>
     {
         /// <summary>
         /// Cadastra um novo usuario
@@ -26,7 +27,7 @@ namespace CadastroUsuario.Service.Interfaces.Cadastro
         /// </summary>
         /// <param name="guidUsuario"></param>
         /// <returns></returns>
-        bool Remove(Guid? guidUsuario);
+        bool Remove(int id);
 
         /// <summary>
         /// Lista todos usuarios ativos cadastrados

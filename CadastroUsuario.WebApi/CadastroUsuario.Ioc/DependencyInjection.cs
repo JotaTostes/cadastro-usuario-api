@@ -3,6 +3,7 @@ using CadastroUsuario.Repository.Interfaces.Cadastro;
 using CadastroUsuario.Repository.Repositories.Cadastro;
 using CadastroUsuario.Service.Cadastro;
 using CadastroUsuario.Service.Interfaces.Cadastro;
+using CadastroUsuario.Service.Services.Cadastro;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -19,6 +20,7 @@ namespace CadastroUsuario.Ioc
         public static void InjecaoDependenciaServicos(ref IServiceCollection services)
         {
             services.AddScoped<IUsuarioService, UsuarioService>();
+            services.AddScoped<ISexoService, SexoService>();
 
         }
 
@@ -29,7 +31,7 @@ namespace CadastroUsuario.Ioc
         public static void InjecaoDependenciaRepositorios(ref IServiceCollection services)
         {
             services.AddScoped<IUsuarioRepository, UsuarioRepository>();
-
+            services.AddScoped<ISexoRepository, SexoRepository>();
         }
 
         /// <summary>

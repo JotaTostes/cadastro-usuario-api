@@ -47,10 +47,10 @@ namespace CadastroUsuario.Service.Interfaces
         /// <param name="predicate"></param>
         void Remove(Func<TEntity, bool> predicate);
 
-        /// <summary>
-        /// Remove logicamente um registro.
-        /// </summary>
-        /// <param name="obj"></param>
-        void RemoverLogico(TEntity obj);
+        ///// <summary>
+        ///// Remove logicamente um registro.
+        ///// </summary>
+        ///// <param name="obj"></param>
+        //void RemoverLogico(TEntity obj);
     }
 }

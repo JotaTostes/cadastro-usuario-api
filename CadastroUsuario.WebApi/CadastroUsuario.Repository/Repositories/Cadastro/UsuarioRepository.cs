@@ -23,7 +23,7 @@ namespace CadastroUsuario.Repository.Repositories.Cadastro
             using (var db = new CadastroUsuarioContext())
             {
                 var lQuery = (from Usuario in db.Usuario.AsNoTracking()
-                              where Usuario.Status.Equals('A')
+                              where Usuario.Ativo == true
                               orderby Usuario.Nome
                               select Usuario)
                               .ToList();

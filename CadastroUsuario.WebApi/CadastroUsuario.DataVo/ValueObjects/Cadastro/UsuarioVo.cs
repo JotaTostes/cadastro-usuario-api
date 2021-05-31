@@ -10,9 +10,9 @@ namespace CadastroUsuario.DataVo.ValueObjects.Cadastro
     [DataContract]
     public class UsuarioVo
     {
-        [DataMember(Order = 1, Name = "UsuarioGuid", IsRequired = false)]
+        [DataMember(Order = 1, Name = "UsuarioId", IsRequired = false)]
         [JsonIgnore]
-        public Guid? Guid { get; set; }
+        public int UsuarioId { get; set; }
 
         [DataMember(Order = 2, Name = "Nome", IsRequired = true)]
         [StringLength(50, MinimumLength = 3, ErrorMessage = "Nome deve conter no maximo 50 caracteres e no minimo 3.")]
@@ -22,15 +22,15 @@ namespace CadastroUsuario.DataVo.ValueObjects.Cadastro
         public string Email { get; set; }
 
         [DataMember(Order = 4, Name = "Sexo", IsRequired = true)]
-        public string Sexo { get; set; }
+        public int Sexo { get; set; }
 
         [DataMember(Order = 5, Name = "Senha", IsRequired = true)]
         public string Senha { get; set; }
 
-        [DataMember(Order = 6, Name = "Data de Nascimento", IsRequired = false)]
-        public DateTime? DataNasc { get; set; }
+        [DataMember(Order = 6, Name = "DataNascimento", IsRequired = false)]
+        public DateTime? DataNascimento { get; set; }
 
-        [DataMember(Order = 7, Name = "Status", IsRequired = false)]
-        public char Status { get; set; }
+        [DataMember(Order = 7, Name = "Ativo", IsRequired = false)]
+        public bool Ativo { get; set; }
     }
 }

@@ -10,26 +10,26 @@ namespace CadastroUsuario.Domain.Entities.Cadastro
     public class Usuario
     {
         [Key]
-        [Column("USR_GUID")]
-        public Guid? Guid { get; set; }
+        [Column("UsuarioId")]
+        public int UsuarioId { get; set; }
 
-        [Column("USR_NOME")]
+        [Column("Nome")]
         public string Nome { get; set; }
 
-        [Column("USR_EMAIL")]
+        [Column("Email")]
         public string Email { get; set; }
 
-        [Column("USR_SEXO")]
-        public string Sexo { get; set; }
+        [Column("SexoId")]
+        public int Sexo { get; set; }
 
-        [Column("USR_SENHA")]
+        [Column("Senha")]
         public string Senha { get; set; }
 
-        [Column("USR_DATA_NASC")]
+        [Column("DataNascimento")]
         public DateTime? DataNascimento { get; set; }
 
-        [Column("USR_STATUS")]
-        public char Status { get; set; }
+        [Column("Ativo")]
+        public bool Ativo { get; set; }
 
     }
 }

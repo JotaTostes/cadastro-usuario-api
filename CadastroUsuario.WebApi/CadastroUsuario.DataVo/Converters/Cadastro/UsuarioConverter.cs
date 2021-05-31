@@ -16,13 +16,13 @@ namespace CadastroUsuario.DataVo.Converters.Cadastro
             if (origin == null) return null;
             return new Usuario
             {
-                Guid = origin.Guid,
-                DataNascimento = origin.DataNasc,
+                UsuarioId = origin.UsuarioId,
+                DataNascimento = origin.DataNascimento,
                 Email = origin.Email,
                 Nome = origin.Nome,
                 Senha = origin.Senha,
                 Sexo = origin.Sexo,
-                Status = origin.Status
+                Ativo = origin.Ativo
             };
         }
 
@@ -31,13 +31,13 @@ namespace CadastroUsuario.DataVo.Converters.Cadastro
             if (origin == null) return null;
             return new UsuarioVo
             {
-                Guid = origin.Guid,
-                DataNasc = origin.DataNascimento,
+                UsuarioId = origin.UsuarioId,
+                DataNascimento = origin.DataNascimento,
                 Email = origin.Email,
                 Nome = origin.Nome,
                 Senha = origin.Senha,
                 Sexo = origin.Sexo,
-                Status = origin.Status
+                Ativo = origin.Ativo
             };
         }
 

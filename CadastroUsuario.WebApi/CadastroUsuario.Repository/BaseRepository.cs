@@ -37,7 +37,7 @@ namespace CadastroUsuario.Repository.Repositories
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public TEntity GetByGuid(object id)
+        public TEntity GetById(object id)
         {
             using (var db = new CadastroUsuarioContext())
             {

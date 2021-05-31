@@ -23,7 +23,7 @@ namespace CadastroUsuario.Repository.Interfaces
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        TEntity GetByGuid(object id);
+        TEntity GetById(object id);
 
         /// <summary>
         /// Método que retorna uma lista com todos registros de uma tabela.

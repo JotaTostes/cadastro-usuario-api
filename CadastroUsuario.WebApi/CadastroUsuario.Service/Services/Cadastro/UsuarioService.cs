@@ -1,7 +1,9 @@
 ﻿using CadastroUsuario.DataVo.Converters.Cadastro;
 using CadastroUsuario.DataVo.ValueObjects.Cadastro;
+using CadastroUsuario.Domain.Entities.Cadastro;
 using CadastroUsuario.Repository.Interfaces.Cadastro;
 using CadastroUsuario.Service.Interfaces.Cadastro;
+using CadastroUsuario.Service.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,12 +11,12 @@ using System.Text;
 
 namespace CadastroUsuario.Service.Cadastro
 {
-    public class UsuarioService : IUsuarioService
+    public class UsuarioService : ServiceBase<Usuario>, IUsuarioService
     {
         private readonly IUsuarioRepository _usuarioRepository;
         private readonly UsuarioConverter _usuarioConverter;
 
-        public UsuarioService(IUsuarioRepository usuarioRepository, UsuarioConverter usuarioConverter)
+        public UsuarioService(IUsuarioRepository usuarioRepository, UsuarioConverter usuarioConverter) : base(usuarioRepository)
         {
             _usuarioRepository = usuarioRepository;
             _usuarioConverter = usuarioConverter;
@@ -27,6 +29,7 @@ namespace CadastroUsuario.Service.Cadastro
         /// <returns></returns>
         public UsuarioVo Post(UsuarioVo usuarioVo)
         {
+            usuarioVo.Ativo = true;
             var response = _usuarioRepository.Add(_usuarioConverter.Parse(usuarioVo));
 
             return _usuarioConverter.Parse(response);
@@ -52,9 +55,9 @@ namespace CadastroUsuario.Service.Cadastro
         /// </summary>
         /// <param name="guidUsuario"></param>
         /// <returns></returns>
-        public bool Remove(Guid? guidUsuario)
+        public bool Remove(int id)
         {
-            var usuario = _usuarioRepository.GetByGuid(guidUsuario);
+            var usuario = _usuarioRepository.GetById(id);
 
             if (usuario == null)
                 return false;
@@ -68,6 +71,7 @@ namespace CadastroUsuario.Service.Cadastro
         /// </summary>
         /// <returns></returns>
         public List<UsuarioVo> GetUsuariosAtivos() =>
-            _usuarioConverter.ParseList(_usuarioRepository.GetAll().Where(x => x.Status.Equals('A')).ToList());
+            _usuarioConverter.ParseList(_usuarioRepository.GetAll().Where(x => x.Ativo == true).ToList());
+
     }
 }
